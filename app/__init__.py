@@ -53,5 +53,5 @@ mail = Mail(app)
 
 
 from app import routes
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
