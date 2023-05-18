@@ -5,14 +5,14 @@ from pony.orm import db_session,commit
 from app.models.user import User
 from datetime import datetime
 from app.controllers.auth import hashPassword
-db_params = {'provider': os.getenv('DB_PROVIDER'),
-             'user': os.getenv('DB_USER'),
-             'password': os.getenv('DB_PASSWORD'),
-             'host': os.getenv('DB_HOST'),
-             'database': os.getenv('DB_NAME')}
+db_params = {'provider': 'postgres',
+             'user': os.getenv('PGUSER'),
+             'password': os.getenv('PGPASSWORD'),
+             'host': os.getenv('PGHOST'),
+             'database': os.getenv('PGDATABASE')}
 
-#db.bind(**db_params)
-db.bind(provider='postgres', user='postgres', password='ETEx8zYeytUk3MsfpXMh', host='containers-us-west-112.railway.app', database='railway')
+db.bind(**db_params)
+#db.bind(provider='postgres', user='postgres', password='ETEx8zYeytUk3MsfpXMh', host='containers-us-west-112.railway.app', database='railway')
 db.generate_mapping(create_tables=True)
 
 
